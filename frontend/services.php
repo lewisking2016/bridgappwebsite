@@ -215,26 +215,37 @@ require_once __DIR__ . '/header.php';
                 </div>
                 <h2 style="font-size: 2.25rem; letter-spacing: -0.02em; margin-bottom: 1.5rem;">Duka POS</h2>
                 <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                    Run your retail operations smoothly with Duka POS, our comprehensive Point of Sale solution featuring automated eTIMS compliance built right in as a core feature.
+                    Cloud-based point-of-sale and inventory management built for African retail. Zero hardware dependency, real-time multi-branch stock visibility, automated eTIMS compliance, and a simplified interface your staff can learn in minutes.
                 </p>
                 <ul class="feature-stagger-parent" style="list-style: none; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 1rem; color: var(--text-secondary);">
                     <li class="feature-item" style="display: flex; align-items: center; gap: 0.75rem;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Direct eTIMS invoicing and validation.
+                        Multi-branch and warehouse stock management.
                     </li>
                     <li class="feature-item" style="display: flex; align-items: center; gap: 0.75rem;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Offline checkout queueing and auto-sync.
+                        Direct eTIMS invoicing and KRA compliance.
                     </li>
                     <li class="feature-item" style="display: flex; align-items: center; gap: 0.75rem;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Unified stock status across multiple retail outlets.
+                        HR module — attendance, shifts, payroll, leaves.
+                    </li>
+                    <li class="feature-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        CRM — lead tracking, campaigns, proposals.
+                    </li>
+                    <li class="feature-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Service management and repair job sheets.
                     </li>
                 </ul>
-                <a href="contact.php?service=pos" class="btn btn-primary btn-arrow">
-                    Inquire POS Setup
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://dukapos.africa" target="_blank" class="btn btn-primary btn-arrow">
+                        Visit Duka POS
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <a href="contact.php?service=pos" class="btn btn-secondary">Book a Demo</a>
+                </div>
             </div>
         </div>
     </div>
@@ -532,85 +543,6 @@ require_once __DIR__ . '/header.php';
                                 <h4 style="font-size: 0.95rem; margin-bottom: 0.15rem;">Exam & Grading Module</h4>
                                 <p style="color: var(--text-muted); font-size: 0.8rem;">Grading curves & performance charts</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Duka POS Live Product Section -->
-<section id="dukapos" class="section" style="background: linear-gradient(135deg, #081019 0%, #0d1b2a 100%); overflow: hidden; position: relative;">
-    <div class="glow-orb" style="top: 10%; right: -10%; width: 35vw; height: 35vw; background: radial-gradient(circle, rgba(11, 214, 152, 0.12) 0%, transparent 70%);"></div>
-    <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: center;">
-            <div class="reveal-left">
-                <div style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.25rem; background: rgba(11, 214, 152, 0.1); border: 1px solid rgba(11, 214, 152, 0.2); border-radius: 999px; margin-bottom: 1.5rem;">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0bd698" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-                    <span style="color: #0bd698; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em;">Live Product</span>
-                </div>
-                <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: -0.03em; color: #ffffff; margin-bottom: 1.5rem;">Duka POS</h2>
-                <p style="color: rgba(255, 255, 255, 0.72); margin-bottom: 2rem; max-width: 520px;">
-                    Cloud-based point-of-sale and inventory management built for African retail. Zero hardware dependency, real-time multi-branch stock visibility, and automated eTIMS compliance.
-                </p>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem;">
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">Multi-Branch</div>
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">Stock Management</div>
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">HR Module</div>
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">CRM</div>
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">eTIMS</div>
-                    <div style="padding: 0.45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); font-size: 0.82rem;">Cloud-Based</div>
-                </div>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="https://dukapos.africa" target="_blank" class="btn btn-primary btn-arrow" style="background: #0bd698; border-color: #0bd698;">
-                        Visit Duka POS
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="contact.php?service=pos" class="btn btn-hero btn-hero--ghost" style="border-color: rgba(255, 255, 255, 0.15); color: #ffffff;">Book a Demo</a>
-                </div>
-            </div>
-            <div class="reveal-right delay-2">
-                <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2rem;">
-                    <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 1.5rem;">Use Cases</h3>
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(11, 214, 152, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0bd698" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line></svg>
-                            </div>
-                            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem;">Departmental Stores</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(29, 112, 184, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d70b8" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
-                            </div>
-                            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem;">Retail & Wholesale</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(99, 102, 241, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"></path></svg>
-                            </div>
-                            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem;">Pharmacy & Healthcare</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.06);">
-                            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(11, 214, 152, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0bd698" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                            </div>
-                            <span style="color: rgba(255, 255, 255, 0.85); font-size: 0.9rem;">Repair Shops</span>
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                        <div style="text-align: center;">
-                            <p style="font-size: 1.5rem; font-weight: 800; color: #0bd698; font-family: var(--font-display);">75+</p>
-                            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.06em;">Businesses</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <p style="font-size: 1.5rem; font-weight: 800; color: #0bd698; font-family: var(--font-display);">50K+</p>
-                            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.06em;">Invoices</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <p style="font-size: 1.5rem; font-weight: 800; color: #0bd698; font-family: var(--font-display);">400+</p>
-                            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.06em;">Daily Users</p>
                         </div>
                     </div>
                 </div>

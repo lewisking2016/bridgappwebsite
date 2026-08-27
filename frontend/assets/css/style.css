@@ -40,10 +40,9 @@ body {
     overflow-x: clip;
     line-height: 1.6;
     background:
-        radial-gradient(circle at 10% 0%, rgba(11, 214, 152, 0.11) 0%, transparent 30%),
-        radial-gradient(circle at 90% 4%, rgba(29, 112, 184, 0.07) 0%, transparent 26%),
-        radial-gradient(circle at 50% 100%, rgba(11, 214, 152, 0.06) 0%, transparent 34%),
-        linear-gradient(180deg, #ffffff 0%, #f8fdfb 100%);
+        radial-gradient(circle at 10% 0%, rgba(11, 214, 152, 0.04) 0%, transparent 30%),
+        radial-gradient(circle at 90% 4%, rgba(29, 112, 184, 0.03) 0%, transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #fafcfb 100%);
     position: relative;
 }
 
@@ -63,7 +62,7 @@ body::before {
     right: -14vw;
     width: 42vw;
     height: 42vw;
-    background: radial-gradient(circle, rgba(29, 112, 184, 0.10) 0%, transparent 68%);
+    background: radial-gradient(circle, rgba(29, 112, 184, 0.04) 0%, transparent 68%);
 }
 
 body::after {
@@ -71,7 +70,7 @@ body::after {
     left: -16vw;
     width: 44vw;
     height: 44vw;
-    background: radial-gradient(circle, rgba(11, 214, 152, 0.13) 0%, transparent 66%);
+    background: radial-gradient(circle, rgba(11, 214, 152, 0.05) 0%, transparent 66%);
 }
 
 /* Typography */
@@ -108,16 +107,16 @@ a {
     pointer-events: none;
     z-index: 0;
     background:
-        radial-gradient(circle at 10% 18%, rgba(11, 214, 152, 0.14) 0%, transparent 30%),
-        radial-gradient(circle at 90% 72%, rgba(11, 214, 152, 0.10) 0%, transparent 26%),
-        radial-gradient(circle at 72% 8%, rgba(29, 112, 184, 0.05) 0%, transparent 22%);
+        radial-gradient(circle at 10% 18%, rgba(11, 214, 152, 0.04) 0%, transparent 30%),
+        radial-gradient(circle at 90% 72%, rgba(11, 214, 152, 0.03) 0%, transparent 26%),
+        radial-gradient(circle at 72% 8%, rgba(29, 112, 184, 0.02) 0%, transparent 22%);
 }
 
 .section:nth-of-type(even)::before {
     background:
-        radial-gradient(circle at 88% 22%, rgba(11, 214, 152, 0.13) 0%, transparent 28%),
-        radial-gradient(circle at 8% 78%, rgba(11, 214, 152, 0.11) 0%, transparent 24%),
-        radial-gradient(circle at 42% 48%, rgba(29, 112, 184, 0.04) 0%, transparent 20%);
+        radial-gradient(circle at 88% 22%, rgba(11, 214, 152, 0.04) 0%, transparent 28%),
+        radial-gradient(circle at 8% 78%, rgba(11, 214, 152, 0.03) 0%, transparent 24%),
+        radial-gradient(circle at 42% 48%, rgba(29, 112, 184, 0.02) 0%, transparent 20%);
 }
 
 .section[style*="#081019"]::before,
@@ -374,17 +373,18 @@ a {
 }
 
 .btn-hero--ghost {
-    background: #ffffff;
-    color: var(--text-primary);
-    border: 1px solid rgba(46, 61, 73, 0.14);
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(46, 61, 73, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .btn-hero--ghost:hover {
     border-color: rgba(29, 112, 184, 0.28);
-    color: var(--accent);
+    color: var(--accent) !important;
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    background: #ffffff;
 }
 
 .btn-hero--ghost:active {
@@ -413,8 +413,14 @@ a {
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: #155a9e;
     transform: scale(1.02);
+}
+
+/* Ensure buttons are always visible on any background */
+.btn-primary, .btn-hero--primary {
+    color: #ffffff !important;
+    text-decoration: none !important;
 }
 
 .btn-secondary {
