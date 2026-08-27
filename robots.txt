@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /node_modules/
+Disallow: /logs/
+
+Sitemap: https://bridgapp.considone.co.ke/sitemap.xml

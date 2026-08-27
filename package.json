@@ -1,0 +1,14 @@
+{
+  "name": "bridgappwebsite",
+  "version": "1.0.0",
+  "description": "BridgApp Africa marketing website",
+  "private": true,
+  "scripts": {
+    "vendor:gsap": "powershell -NoProfile -Command \"New-Item -ItemType Directory -Force -Path frontend/assets/vendor/gsap | Out-Null; Copy-Item node_modules/gsap/dist/*.min.js frontend/assets/vendor/gsap/ -Force\"",
+    "postinstall": "npm run vendor:gsap"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "ngrok": "^5.0.0-beta.2"
+  }
+}
