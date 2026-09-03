@@ -90,7 +90,8 @@ $allowedServices = [
     'rental',
     'warehouse',
     'school',
-    'agent',
+    'agent',      // legacy alias — kept for backward compatibility
+    'partner',
     'custom',
     'other',
 ];

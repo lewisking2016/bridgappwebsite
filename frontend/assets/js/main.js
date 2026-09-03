@@ -161,6 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initStackScrollTrigger = () => {
+        // Skip ScrollTrigger on mobile — CSS handles static layout
+        if (window.innerWidth <= 768) {
+            return false;
+        }
         if (reducedMotion || !window.gsap || !window.ScrollTrigger || !stackScroll || stackCards.length === 0) {
             return false;
         }
@@ -295,18 +299,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (stackSection && stackScroll && stackStage && stackCards.length > 0) {
-        setStackScrollHeight();
+        // Only initialise the heavy scroll setup on desktop
+        if (window.innerWidth > 768) {
+            setStackScrollHeight();
 
-        if (!initStackScrollTrigger()) {
-            updateStackCards();
+            if (!initStackScrollTrigger()) {
+                updateStackCards();
+            }
         }
 
         window.addEventListener('resize', () => {
-            setStackScrollHeight();
-            if (stackUsesScrollTrigger && window.ScrollTrigger) {
-                ScrollTrigger.refresh();
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                // Kill any active ScrollTrigger pin on mobile
+                if (window.ScrollTrigger) {
+                    ScrollTrigger.getAll().forEach(t => t.kill());
+                }
+                stackUsesScrollTrigger = false;
+                // Reset inline transforms so CSS takes over
+                stackCards.forEach(card => {
+                    card.style.transform = '';
+                    card.style.opacity = '';
+                    card.style.zIndex = '';
+                });
             } else {
-                updateStackCards();
+                setStackScrollHeight();
+                if (stackUsesScrollTrigger && window.ScrollTrigger) {
+                    ScrollTrigger.refresh();
+                } else if (!stackUsesScrollTrigger) {
+                    // Re-init if we've grown back to desktop
+                    initStackScrollTrigger() || updateStackCards();
+                }
             }
         }, { passive: true });
 
@@ -775,8 +799,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Card tilt only when motion is allowed
-    if (!reducedMotion) {
+    // 7. Card tilt only when motion is allowed AND not a touch device
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!reducedMotion && !isTouchDevice) {
         document.querySelectorAll('.service-card, .settle-container').forEach(card => {
             card.style.transition = 'transform 0.1s var(--ease-mercer)';
 

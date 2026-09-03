@@ -2,7 +2,7 @@
 // frontend/footer.php
 ?>
 <footer>
-    <div class="container footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+    <div class="container footer-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));">
         <div class="footer-brand">
             <a href="index.php" class="logo">
                 <img src="images/bridgapp-logo.png" alt="BridgApp Africa Logo" style="height: 2.2rem; width: auto; object-fit: contain; vertical-align: middle;">
@@ -41,7 +41,7 @@
             <a href="index.php">Home</a>
             <a href="about.php">About Us</a>
             <a href="services.php">Business Solutions</a>
-            <a href="become-an-agent.php">Become An Agent</a>
+            <a href="partnership.php">Partnership</a>
             <a href="contact.php">Contact Us</a>
         </div>
         

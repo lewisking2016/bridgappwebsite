@@ -3,7 +3,11 @@
 require_once __DIR__ . '/header.php';
 
 // Get selected service from URL parameter
+// 'agent' is a legacy alias for 'partner' — redirect old bookmarks seamlessly
 $selectedService = isset($_GET['service']) ? $_GET['service'] : '';
+if ($selectedService === 'agent') {
+    $selectedService = 'partner';
+}
 ?>
 
 <div style="position: relative; overflow: hidden; width: 100%;">
@@ -65,7 +69,7 @@ $selectedService = isset($_GET['service']) ? $_GET['service'] : '';
 <!-- Contact Form and Details Section -->
 <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 5rem; align-items: start;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 4rem; align-items: start;">
             
             <!-- Contact Details -->
             <div class="reveal-left">
@@ -121,7 +125,7 @@ if (empty($_SESSION['csrf_token'])) {
                             <option value="rental" <?php echo ($selectedService === 'rental') ? 'selected' : ''; ?>>Rental Management Systems</option>
                             <option value="warehouse" <?php echo ($selectedService === 'warehouse') ? 'selected' : ''; ?>>Warehouse Management Systems</option>
                             <option value="school" <?php echo ($selectedService === 'school') ? 'selected' : ''; ?>>School Management Systems</option>
-                            <option value="agent" <?php echo ($selectedService === 'agent') ? 'selected' : ''; ?>>Become an Agent / Partner</option>
+                            <option value="partner" <?php echo ($selectedService === 'partner') ? 'selected' : ''; ?>>Partnership Program</option>
                             <option value="custom" <?php echo ($selectedService === 'custom') ? 'selected' : ''; ?>>Custom Software Integration</option>
                             <option value="other" <?php echo ($selectedService === 'other') ? 'selected' : ''; ?>>Other Inquiries</option>
                         </select>

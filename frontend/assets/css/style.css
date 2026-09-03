@@ -34,10 +34,11 @@ html {
     color: var(--text-primary);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 body {
-    overflow-x: clip;
+    overflow-x: hidden;
     line-height: 1.6;
     background:
         radial-gradient(circle at 10% 0%, rgba(11, 214, 152, 0.015) 0%, transparent 30%),
@@ -98,6 +99,7 @@ a {
     padding: 8rem 0;
     position: relative;
     isolation: isolate;
+    overflow: hidden;
 }
 
 .section::before {
@@ -128,6 +130,44 @@ a {
 .section > .floating-icons-wrapper {
     position: relative;
     z-index: 1;
+}
+
+/* ============================================================
+   Responsive Layout Utilities
+   ============================================================ */
+
+/* 2-column split grid — collapses to 1 column on tablet/mobile */
+.split-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 3.5rem;
+    align-items: start;
+}
+
+.split-grid--center {
+    align-items: center;
+}
+
+/* Card grids — always use sensible minimum widths */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 1.5rem;
+}
+
+/* Inline stat grid — 2x2 stats panel */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Partnership / services detail grid gap control */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 3rem;
+    align-items: center;
 }
 
 .soft-panel {
@@ -482,6 +522,8 @@ header {
     border-radius: 9999px;
     transition: top 0.5s var(--ease-mercer), max-width 0.5s var(--ease-mercer), background 0.5s var(--ease-mercer), border-color 0.5s var(--ease-mercer), box-shadow 0.5s var(--ease-mercer);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    /* Prevent header from ever causing page overflow */
+    overflow: visible;
 }
 
 header.scrolled {
@@ -921,12 +963,17 @@ header.scrolled .logo img {
 .service-card {
     background: var(--bg-secondary);
     border: 1px solid rgba(11, 214, 152, 0.14);
-    padding: 3rem 2.5rem;
-    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    border-radius: 14px;
     height: 100%;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    transition: transform 0.35s var(--ease-mercer), border-color 0.35s ease, box-shadow 0.35s ease;
+    /* Ensure content is never clipped */
+    min-width: 0;
+    word-break: break-word;
+    overflow: hidden;
 }
 
 .service-card:hover {
@@ -943,12 +990,13 @@ header.scrolled .logo img {
 .card-icon {
     width: 3.5rem;
     height: 3.5rem;
+    min-width: 3.5rem;
     background: var(--bg-surface);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--accent-green);
     border: 1px solid rgba(11, 214, 152, 0.18);
     transition: transform 0.5s var(--ease-mercer), color 0.3s ease;
@@ -961,15 +1009,17 @@ header.scrolled .logo img {
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
 }
 
 .service-card p {
     color: var(--text-secondary);
     font-size: 0.975rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-grow: 1;
+    line-height: 1.65;
 }
 
 .service-card .learn-more {
@@ -978,7 +1028,8 @@ header.scrolled .logo img {
     gap: 0.5rem;
     font-weight: 600;
     color: var(--accent-light);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    margin-top: auto;
 }
 
 .service-card:hover .learn-more svg {
@@ -1185,7 +1236,7 @@ footer > div {
 
 @media (max-width: 768px) {
     .section {
-        padding: 4rem 0;
+        padding: 3.5rem 0;
     }
     .hero-section {
         padding-top: 7rem;
@@ -1220,25 +1271,33 @@ footer > div {
         padding: 0.7rem 1.25rem;
     }
     .container {
-        padding: 0 1.25rem;
+        padding: 0 1rem;
     }
+
+    /* ---- Stack Section Mobile ---- */
     .stack-frame {
         position: static;
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     .stack-scroll {
         min-height: auto !important;
     }
     .stack-stage {
         min-height: auto;
+        /* Stack cards become a regular vertical list */
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
     }
     .stack-card {
         position: static;
         inset: auto;
         opacity: 1 !important;
         transform: none !important;
-        margin-bottom: 1rem;
-        padding: 1.25rem;
+        margin-bottom: 0;
+        padding: 1.25rem 1rem;
+        border-radius: 10px;
     }
     .stack-card__title {
         font-size: 1rem;
@@ -1249,31 +1308,53 @@ footer > div {
     .stack-card__meta {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* ---- Mobile Navigation ---- */
+    header {
+        width: calc(100% - 1.5rem);
+        top: 0.75rem;
+    }
+    header.scrolled {
+        top: 0.5rem;
+    }
+    .nav-container {
+        padding: 0 1.25rem;
+        height: 4rem;
+    }
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
+        top: calc(100% + 0.5rem);
         left: 0;
+        right: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        margin-top: 0.5rem;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(11, 214, 152, 0.15);
+        border-radius: 18px;
         flex-direction: column;
-        padding: 1.5rem;
-        gap: 1rem;
-        align-items: center;
+        padding: 1.25rem;
+        gap: 0.25rem;
+        align-items: stretch;
         z-index: 999;
-        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(11, 214, 152, 0.06);
     }
     .nav-links.mobile-open {
         display: flex;
     }
     .nav-link {
         font-size: 1rem;
-        padding: 0.5rem 0;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        text-align: left;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-link:hover {
+        background: rgba(11, 214, 152, 0.06);
+    }
+    .nav-link::after {
+        display: none;
     }
     .mobile-nav-toggle {
         display: block;
@@ -1290,28 +1371,50 @@ footer > div {
         transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Mobile card and service fixes */
+    /* ---- Mobile Cards ---- */
     .service-card {
-        padding: 2rem 1.5rem;
+        padding: 1.75rem 1.25rem;
+        border-radius: 12px;
     }
     .service-card h3 {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
     .service-card p {
         font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+    .card-icon {
+        width: 3rem;
+        height: 3rem;
+        min-width: 3rem;
+        margin-bottom: 1.25rem;
     }
     .service-detail-card {
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem;
+        border-radius: 12px;
     }
     .btn {
         font-size: 0.88rem;
         padding: 0.75rem 1.25rem;
+        gap: 0.5rem;
+    }
+    .btn-arrow svg {
+        width: 16px;
+        height: 16px;
     }
 
-    /* Mobile footer */
+    /* ---- Inline Grids in Pages (override section-level inline styles) ---- */
+    /* Any grid inside a container that uses repeat(auto-fit) will collapse properly,
+       but for grids with fixed minmax(320px) we override via gap */
+    .section .container > div[style*="grid-template-columns"],
+    .section .container > div > div[style*="grid-template-columns"] {
+        gap: 2rem !important;
+    }
+
+    /* ---- Mobile Footer ---- */
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
     .footer-brand {
         grid-column: span 1;
@@ -1325,23 +1428,24 @@ footer > div {
         text-align: center;
     }
 
-    /* Mobile testimonials */
+    /* ---- Mobile Stagger Grid ---- */
     .stagger-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    /* Mobile form */
+    /* ---- Mobile Form ---- */
     .form-control {
         padding: 0.85rem 1rem;
         font-size: 0.95rem;
     }
 
-    /* Mobile section headings */
+    /* ---- Mobile Section Headings ---- */
     .section h2 {
         font-size: clamp(1.5rem, 5vw, 2rem);
     }
 
-    /* Mobile timeline */
+    /* ---- Mobile Timeline ---- */
     .scroll-timeline {
         padding-left: 2rem;
     }
@@ -1354,23 +1458,62 @@ footer > div {
         padding-bottom: 1.5rem;
     }
 
-    /* Mobile settle containers */
+    /* ---- Mobile Settle Containers ---- */
     .settle-container {
-        height: 280px !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+        min-height: 220px;
+    }
+    .settle-container .settle-img {
+        position: absolute;
+        inset: 0;
     }
     .floating-overlay {
-        padding: 1rem 1.25rem;
+        padding: 0.875rem 1rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
     }
     .floating-overlay h4 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     .floating-overlay p {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
-    /* Mobile floating icons — reduce noise */
+    /* ---- Mobile Floating Icons — hide on small screens ---- */
     .floating-icons-wrapper .floating-icon {
         display: none;
+    }
+
+    /* ---- Stat grid — 2 col on mobile is fine ---- */
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* ---- Split/detail grid ---- */
+    .split-grid,
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* ---- Button rows — wrap and stretch ---- */
+    div[style*="display: flex"][style*="gap: 1.5rem"],
+    div[style*="display: flex"][style*="gap: 1rem"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    div[style*="display: flex"][style*="gap: 1.5rem"] .btn,
+    div[style*="display: flex"][style*="gap: 1rem"] .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ---- Partnership / Section hero padding ---- */
+    .section[style*="padding-top: 10rem"] {
+        padding-top: 7.5rem !important;
+        padding-bottom: 3rem !important;
     }
 }
 
@@ -1392,6 +1535,49 @@ footer > div {
     }
     .stack-card {
         transition: none !important;
+    }
+    /* settle-container needs relative position so absolute children work */
+    .settle-container {
+        position: relative;
+    }
+}
+
+/* Extra small phones (320–480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.875rem;
+    }
+    .section {
+        padding: 3rem 0;
+    }
+    .service-card {
+        padding: 1.5rem 1rem;
+    }
+    .card-icon {
+        width: 2.75rem;
+        height: 2.75rem;
+        min-width: 2.75rem;
+        margin-bottom: 1rem;
+    }
+    .service-card h3 {
+        font-size: 1.05rem;
+    }
+    .service-detail-card {
+        padding: 1.25rem 1rem;
+    }
+    .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    .scroll-timeline {
+        padding-left: 1.75rem;
+    }
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    header {
+        width: calc(100% - 1rem);
     }
 }
 

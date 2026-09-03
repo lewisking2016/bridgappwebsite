@@ -79,7 +79,7 @@ function isPageActive($pageName) {
                 <li><a href="index.php" class="nav-link <?php echo isPageActive('index.php'); ?>">Home</a></li>
                 <li><a href="about.php" class="nav-link <?php echo isPageActive('about.php'); ?>">About Us</a></li>
                 <li><a href="services.php" class="nav-link <?php echo isPageActive('services.php'); ?>">Business Solutions</a></li>
-                <li><a href="become-an-agent.php" class="nav-link <?php echo isPageActive('become-an-agent.php'); ?>">Become An Agent</a></li>
+                <li><a href="partnership.php" class="nav-link <?php echo isPageActive('partnership.php'); ?>">Partnership</a></li>
                 <li><a href="contact.php" class="nav-link <?php echo isPageActive('contact.php'); ?>">Contact Us</a></li>
             </ul>
         </nav>
