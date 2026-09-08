@@ -136,6 +136,11 @@ if (empty($_SESSION['csrf_token'])) {
                         <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can we help your business succeed?" required></textarea>
                     </div>
                     
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="form-group" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
+                        <div class="g-recaptcha" data-sitekey="<?php echo defined('RECAPTCHA_SITE_KEY') ? RECAPTCHA_SITE_KEY : '6Ld-YOUR_SITE_KEY'; ?>" data-theme="dark"></div>
+                    </div>
+                    
                     <button type="submit" class="btn btn-primary btn-arrow" style="width: 100%; justify-content: center; border: none;">
                         Submit Inquiry
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>

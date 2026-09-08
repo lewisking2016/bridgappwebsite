@@ -84,6 +84,52 @@ if (!validateCsrfToken($csrfToken)) {
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/mailer.php';
 
+// --- Google reCAPTCHA Verification ---
+$recaptchaResponse = filter_input(INPUT_POST, 'g-recaptcha-response', FILTER_UNSAFE_RAW);
+$recaptchaSecret = defined('RECAPTCHA_SECRET_KEY') ? RECAPTCHA_SECRET_KEY : '';
+
+if (!empty($recaptchaSecret) && $recaptchaSecret !== '6Ld-YOUR_SECRET_KEY' && $recaptchaSecret !== 'YOUR_RECAPTCHA_SECRET_KEY') {
+    if (empty($recaptchaResponse)) {
+        http_response_code(400);
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Please complete the reCAPTCHA security checkbox before submitting.',
+        ]);
+        exit;
+    }
+
+    $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+    $postData = http_build_query([
+        'secret' => $recaptchaSecret,
+        'response' => $recaptchaResponse,
+        'remoteip' => $clientIp,
+    ]);
+
+    $options = [
+        'http' => [
+            'header' => "Content-Type: application/x-www-form-urlencoded\r\n" .
+                        "Content-Length: " . strlen($postData) . "\r\n",
+            'method' => 'POST',
+            'content' => $postData,
+            'timeout' => 10,
+        ],
+    ];
+    $context = stream_context_create($options);
+    $verifyResult = @file_get_contents($verifyUrl, false, $context);
+
+    if ($verifyResult !== false) {
+        $captchaJson = json_decode($verifyResult, true);
+        if (!isset($captchaJson['success']) || $captchaJson['success'] !== true) {
+            http_response_code(403);
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'reCAPTCHA verification failed. Please check the box and try again.',
+            ]);
+            exit;
+        }
+    }
+}
+
 $allowedServices = [
     'erp',
     'pos',

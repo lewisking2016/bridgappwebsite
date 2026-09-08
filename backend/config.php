@@ -17,6 +17,10 @@ define('MAIL_FROM_ADDRESS', 'admin@bridgapp.co.ke');
 define('MAIL_FROM_NAME', 'BridgApp Africa');
 define('ADMIN_NOTIFICATION_EMAIL', 'admin@bridgapp.co.ke');
 
+// Google reCAPTCHA v2 Configuration
+define('RECAPTCHA_SITE_KEY', '6Ld-YOUR_SITE_KEY');
+define('RECAPTCHA_SECRET_KEY', '6Ld-YOUR_SECRET_KEY');
+
 /**
  * Get Database Connection
  * Fallback to null if connection fails to keep the website functional.

@@ -782,6 +782,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (isSuccess) {
                         contactForm.reset();
+                        if (typeof grecaptcha !== 'undefined') {
+                            try { grecaptcha.reset(); } catch (e) {}
+                        }
                     }
                 }
             } catch {
