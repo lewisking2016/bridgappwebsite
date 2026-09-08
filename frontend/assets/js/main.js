@@ -753,6 +753,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch('../backend/contact_submit.php', {
                     method: 'POST',
+                    credentials: 'include',
                     body: formData,
                 });
 

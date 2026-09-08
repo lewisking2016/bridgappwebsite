@@ -1,5 +1,6 @@
 <?php
 // frontend/contact.php
+require_once __DIR__ . '/../backend/config.php';
 require_once __DIR__ . '/header.php';
 
 // Get selected service from URL parameter
