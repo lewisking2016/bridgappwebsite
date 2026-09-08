@@ -11,9 +11,9 @@
             
             <!-- Contact Details -->
             <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem;">
-                <a href="mailto:info@bridgapp.co.ke" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                <a href="mailto:admin@bridgapp.co.ke" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    info@bridgapp.co.ke
+                    admin@bridgapp.co.ke
                 </a>
                 <a href="tel:+254727585599" style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
@@ -58,7 +58,7 @@
         <div class="footer-nav">
             <h4>Get In Touch</h4>
             <a href="contact.php">Free Consulting</a>
-            <a href="mailto:info@bridgapp.co.ke">info@bridgapp.co.ke</a>
+            <a href="mailto:admin@bridgapp.co.ke">admin@bridgapp.co.ke</a>
             <a href="tel:+254727585599">+254 727 585 599</a>
         </div>
     </div>
@@ -71,5 +71,19 @@
 
 <?php include __DIR__ . '/partials/gsap-scripts.php'; ?>
 <script src="assets/js/main.js" defer></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a9fc63d08f5a2345548d591/1k201sot0';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

@@ -6,6 +6,17 @@ define('DB_USER', 'bridgapp_user');
 define('DB_PASS', 'bridgapp_user');
 define('DB_NAME', 'dqzdepcp_bridgapp');
 
+// SMTP Mail Configuration (Zoho Mail)
+define('MAIL_MAILER', 'smtp');
+define('MAIL_HOST', 'smtp.zoho.com');
+define('MAIL_PORT', 587);
+define('MAIL_USERNAME', 'admin@bridgapp.co.ke');
+define('MAIL_PASSWORD', 'lewisking2005');
+define('MAIL_ENCRYPTION', 'tls');
+define('MAIL_FROM_ADDRESS', 'admin@bridgapp.co.ke');
+define('MAIL_FROM_NAME', 'BridgApp Africa');
+define('ADMIN_NOTIFICATION_EMAIL', 'admin@bridgapp.co.ke');
+
 /**
  * Get Database Connection
  * Fallback to null if connection fails to keep the website functional.

@@ -54,7 +54,7 @@ function isPageActive($pageName) {
             "@type": "ContactPoint",
             "telephone": "+254-727-585-599",
             "contactType": "customer service",
-            "email": "info@bridgapp.co.ke"
+            "email": "admin@bridgapp.co.ke"
         },
         "sameAs": [
             "https://www.linkedin.com/company/106608802/",

@@ -82,6 +82,7 @@ if (!validateCsrfToken($csrfToken)) {
 }
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/mailer.php';
 
 $allowedServices = [
     'erp',
@@ -158,8 +159,15 @@ if (!$savedToDb) {
     @file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
 }
 
+// Generate unique reference tracking code
+$refCode = 'REF-' . date('Ymd') . '-' . strtoupper(substr(md5(uniqid((string)mt_rand(), true)), 0, 6));
+
+// Trigger automated email sending (Admin notification + Customer confirmation auto-responder)
+@sendInquiryEmails($name, $email, $serviceType, $message, $refCode, $clientIp);
+
 echo json_encode([
     'status' => 'success',
-    'message' => 'Thank you for your message! Our engineering leads will contact you shortly.',
+    'message' => "Thank you for your message! Our engineering leads will contact you shortly. Reference Code: {$refCode}.",
+    'ref_code' => $refCode
 ]);
 exit;

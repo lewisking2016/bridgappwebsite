@@ -84,7 +84,7 @@ if ($selectedService === 'agent') {
                     
                     <div>
                         <h4 style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 1.1rem;">Direct Inquiries</h4>
-                        <p>Email: info@bridgapp.co.ke</p>
+                        <p>Email: <a href="mailto:admin@bridgapp.co.ke" style="color: var(--accent-light);">admin@bridgapp.co.ke</a></p>
                         <p>Phone: +254 727 585 599</p>
                     </div>
                 </div>
