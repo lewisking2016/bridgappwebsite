@@ -18,8 +18,8 @@ define('MAIL_FROM_NAME', 'BridgApp Africa');
 define('ADMIN_NOTIFICATION_EMAIL', 'admin@bridgapp.co.ke');
 
 // Google reCAPTCHA v2 Configuration
-define('RECAPTCHA_SITE_KEY', '6Ld-YOUR_SITE_KEY');
-define('RECAPTCHA_SECRET_KEY', '6Ld-YOUR_SECRET_KEY');
+define('RECAPTCHA_SITE_KEY', '6LeAHrAtAAAAADHCH5cOKPcLs5ivn5zWCBw5PWYu');
+define('RECAPTCHA_SECRET_KEY', '6LeAHrAtAAAAAJKEarSoQgbEF3gRRbiOUeq8n95H');
 
 /**
  * Get Database Connection
